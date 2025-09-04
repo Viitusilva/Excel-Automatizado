@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Relações de Compradores do Soro</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f9f9f9;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .form, .acoes {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+    }
+
+    input, select, button {
+      padding: 8px;
+      font-size: 14px;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    button#adicionar, button#exportar, button#apagar-tudo {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    button.excluir {
+      background-color: #f44336;
+      color: white;
+    }
+
+    table {
+      width: 80%;
+      margin: 0 auto 20px auto;
+      border-collapse: collapse;
+      background: #fff;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    tr:hover {
+      background-color: #eaeaea;
+    }
+
+    .legenda {
+      width: 80%;
+      margin: 0 auto;
+      background: #fff;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>Relações de Compradores do Soro</h1>
+
+  <div class="form">
+    <input type="text" id="nome" placeholder="Nome">
+    <input type="number" id="litros" placeholder="Litros">
+    <select id="tipo">
+      <option value="Produtor(a)">Produtor(a)</option>
+      <option value="Não Produtor(a)">Não Produtor(a)</option>
+      <option value="Fretes">Fretes</option>
+      <option value="Colaborador">Colaborador</option>
+    </select>
+    <button id="adicionar" onclick="adicionar()">Adicionar</button>
+  </div>
+
+  <div class="acoes">
+    <input type="text" id="search" placeholder="Buscar..." oninput="filtrar()">
+    <button id="exportar" onclick="exportar()">Exportar</button>
+    <input type="file" id="importFile" accept=".json">
+    <button id="apagar-tudo" onclick="apagarTudo()">Apagar tudo</button>
+  </div>
+
+  <table id="tabela">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Litros</th>
+        <th>Tipo</th>
+        <th>Ação</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <div class="legenda">
+    <h3>Legenda</h3>
+    <ul>
+      <li><b>Produtor(a)</b> - fornecedor de matéria-prima</li>
+      <li><b>Não Produtor(a)</b> - carrega para si próprio</li>
+      <li><b>Fretes</b> - carrega o soro para terceiros</li>
+      <li><b>Colaborador</b> - trabalha na empresa</li>
+    </ul>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
+ 
