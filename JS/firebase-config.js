@@ -1,6 +1,3 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-import { getDatabase } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
-
 const firebaseConfig = {
   apiKey: "AIzaSyCR89bsuKU76e8tAAcw1rXO49_rSMhogXY",
   authDomain: "compras-de-soro.firebaseapp.com",
@@ -8,8 +5,12 @@ const firebaseConfig = {
   projectId: "compras-de-soro",
   storageBucket: "compras-de-soro.appspot.com",
   messagingSenderId: "300710916986",
-  appId: "1:300710916986:web:234905b7464b595f081cc3"
+  appId: "1:300710916986:web:234905b7464b595f081cc3",
+  measurementId: "G-BTWSBNLDNY"
 };
 
-const app = initializeApp(firebaseConfig);
-export const db = getDatabase(app);
+
+firebase.initializeApp(firebaseConfig);
+
+const db = firebase.database();
+const ref = db.ref("compradores_soro");
