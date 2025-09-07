@@ -133,7 +133,14 @@
 
     <script src="js/firebase-config.js"></script>
     <script src="js/app.js"></script>
-
+    <script>
+  firebase.auth().onAuthStateChanged(user => {
+    if (!user) {
+      // se não está logado, manda pra tela de login
+      window.location.href = "login.html";
+    }
+  });
+</script>
 </body>
 </html>
  
